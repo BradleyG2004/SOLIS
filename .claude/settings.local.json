@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.laundryheap.com)",
+      "WebFetch(domain:ndaane.com)",
+      "WebFetch(domain:storyset.com)",
+      "WebFetch(domain:drinkalldae.com)"
+    ]
+  }
+}

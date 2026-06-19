@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: solis-trill
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: DATABASE_URI
+        fromDatabase:
+          name: solis-trill-db
+          property: connectionString
+      - key: PAYLOAD_SECRET
+        generateValue: true
+      - key: NEXT_PUBLIC_SERVER_URL
+        sync: false
+      - key: NODE_ENV
+        value: production
+
+databases:
+  - name: solis-trill-db
+    plan: free
+    databaseName: solis
+    user: solis

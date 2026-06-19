@@ -1,0 +1,52 @@
+import type { CollectionConfig } from 'payload'
+
+export const Categories: CollectionConfig = {
+  slug: 'categories',
+  labels: {
+    singular: 'Catégorie',
+    plural: 'Catégories',
+  },
+  admin: {
+    useAsTitle: 'name',
+    group: 'SOLIS Market',
+    defaultColumns: ['name', 'slug', 'isActive'],
+  },
+  access: {
+    read: () => true,
+  },
+  fields: [
+    {
+      name: 'name',
+      type: 'text',
+      label: 'Nom',
+      required: true,
+    },
+    {
+      name: 'slug',
+      type: 'text',
+      label: 'Identifiant URL',
+      required: true,
+      unique: true,
+      admin: {
+        description: 'Ex. accessoires, nourriture',
+      },
+    },
+    {
+      name: 'description',
+      type: 'textarea',
+      label: 'Description',
+    },
+    {
+      name: 'order',
+      type: 'number',
+      label: 'Ordre d\'affichage',
+      defaultValue: 0,
+    },
+    {
+      name: 'isActive',
+      type: 'checkbox',
+      label: 'Visible sur le site',
+      defaultValue: true,
+    },
+  ],
+}
