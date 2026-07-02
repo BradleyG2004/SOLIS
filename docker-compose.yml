@@ -24,7 +24,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      DATABASE_URI: postgresql://SOLISS:SOLISS@postgres:5432/SOLISS
+      DATABASE_URL: postgresql://SOLISS:SOLISS@postgres:5432/SOLISS
       PAYLOAD_SECRET: dev-secret-changez-en-production
       NEXT_PUBLIC_SERVER_URL: https://hybrid-hertz-stowing.ngrok-free.dev
       NODE_ENV: development

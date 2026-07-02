@@ -78,7 +78,7 @@ SOLISS/
 
 | Variable | Valeur |
 |----------|--------|
-| `DATABASE_URI` | URL interne PostgreSQL Render |
+| `DATABASE_URL` | URL interne PostgreSQL Render |
 | `PAYLOAD_SECRET` | Chaîne aléatoire (32+ caractères) |
 | `NEXT_PUBLIC_SERVER_URL` | URL publique Render (ex. `https://SOLISS-trill.onrender.com`) |
 | `NODE_ENV` | `production` |

@@ -6,7 +6,7 @@ services:
     dockerContext: ./backend
     plan: free
     envVars:
-      - key: DATABASE_URI
+      - key: DATABASE_URL
         fromDatabase:
           name: SOLISS-trill-db
           property: connectionString
