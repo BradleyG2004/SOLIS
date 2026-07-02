@@ -65,21 +65,18 @@ export const productsByCategory: Record<
     { name: 'Étui cuir', slug: 'etui-cuir', description: 'Cuir végétal, finition sobre.', price: 22 },
     { name: 'Briquet rechargeable', slug: 'briquet-rechargeable', description: 'Flamme électrique, USB.', price: 18.5 },
     { name: 'Porte-cigarettes', slug: 'porte-cigarettes', description: 'Métal laqué, 20 unités.', price: 8.9 },
-    { name: 'Glace carbonique', slug: 'glace-carbonique', description: 'Bloc de CO₂ solide pour ambiance et effets visuels. Vente sur place uniquement.', price: 8 },
   ],
   'bien-etre': [
     { name: 'Huile essentielle lavande', slug: 'he-lavande', description: 'Flacon 10 ml, 100 % pure.', price: 11.9 },
     { name: 'Bougie cire soja', slug: 'bougie-soja', description: 'Parfum vanille, 40 h.', price: 16.5 },
     { name: 'Roll-on détente', slug: 'roll-on-detente', description: 'Mélange huiles essentielles.', price: 13.9 },
     { name: 'Sels de bain', slug: 'sels-de-bain', description: 'Sachet 300 g, eucalyptus.', price: 9.5 },
-    { name: 'Hormones de croissance', slug: 'hormones-croissance', description: 'Complément naturel stimulant la croissance musculaire. Dosage conseillé à respecter.', price: 35 },
   ],
   numerique: [
     { name: 'Carte cadeau 25 €', slug: 'carte-cadeau-25', description: 'Valable sur SOLISS Market.', price: 25 },
     { name: 'Carte cadeau 50 €', slug: 'carte-cadeau-50', description: 'Valable sur SOLISS Market.', price: 50 },
     { name: 'Recharge mobile 10 €', slug: 'recharge-10', description: 'Opérateurs partenaires.', price: 10 },
     { name: 'Abonnement streaming 1 mois', slug: 'streaming-1-mois', description: 'Code d\'activation partenaire.', price: 12.99 },
-    { name: 'Faux compte', slug: 'faux-compte', description: 'Création de compte secondaire sur plateformes partenaires. Discret et sécurisé.', price: 5 },
     { name: 'Réalisation de site simple', slug: 'realisation-site-simple', description: 'Site vitrine clé en main. Délai 5–7 jours. Devis sur demande.', price: 150 },
   ],
 }
