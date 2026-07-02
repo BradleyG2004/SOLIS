@@ -101,7 +101,7 @@ export default async function ProductPage({ params }: Props) {
           <button type="button" className="btn btn-disabled" disabled>
             Commander
           </button>
-          <PaymentBadge message={settings.paymentNotice} />
+          <PaymentBadge message={settings.paymentNotice ?? undefined} />
         </div>
       </div>
     </div>
