@@ -26,7 +26,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     meta: {
-      titleSuffix: '— SOLIS TRILL Admin',
+      titleSuffix: '— SOLISS TRILL Admin',
     },
     importMap: {
       baseDir: path.resolve(dirname),

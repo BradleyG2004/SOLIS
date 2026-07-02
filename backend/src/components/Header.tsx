@@ -8,6 +8,8 @@ const links = [
   { href: '/market', label: 'Market' },
   { href: '/bar', label: 'Bar' },
   { href: '/laundry', label: 'Laundry' },
+  { href: '/immo', label: 'Immo' },
+  { href: '/transit', label: 'Transit' },
 ]
 
 export function Header() {
@@ -17,7 +19,7 @@ export function Header() {
     <header className="site-header">
       <div className="container inner">
         <Link href="/" className="logo">
-          SOLIS <span>TRILL</span>
+          SOLISS <span>TRILL</span>
         </Link>
         <nav className="nav">
           {links.map((link) => (

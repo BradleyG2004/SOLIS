@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
 const links = [
-  { href: '/market', label: 'SOLIS Market' },
-  { href: '/bar', label: 'SOLIS Bar' },
-  { href: '/laundry', label: 'SOLIS Laundry' },
+  { href: '/market', label: 'SOLISS Market' },
+  { href: '/bar', label: 'SOLISS Bar' },
+  { href: '/laundry', label: 'SOLISS Laundry' },
 ]
 
 export function Header() {
@@ -11,7 +11,7 @@ export function Header() {
     <header className="site-header">
       <div className="container inner">
         <Link href="/" className="logo">
-          SOLIS <span>TRILL</span>
+          SOLISS <span>TRILL</span>
         </Link>
         <nav className="nav">
           {links.map((link) => (
@@ -29,7 +29,7 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div className="container">
-        <p>© {new Date().getFullYear()} SOLIS TRILL — Market · Bar · Laundry</p>
+        <p>© {new Date().getFullYear()} SOLISS TRILL — Market · Bar · Laundry</p>
       </div>
     </footer>
   )

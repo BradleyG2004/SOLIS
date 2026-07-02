@@ -1,11 +1,15 @@
 import Link from 'next/link'
 import { formatPrice } from '@/lib/format'
-import type { Product } from '@/lib/types'
+import type { Media, Product } from '@/lib/types'
 
-/*
-  Photos produits par mots-clés dans le nom — Unsplash (CC0 commercial).
-  On cherche d'abord dans le nom du produit, puis fallback par index stable.
-*/
+function getUploadedImg(product: Product): string | null {
+  if (!product.image) return null
+  if (typeof product.image === 'object' && (product.image as Media).url) {
+    return (product.image as Media).url!
+  }
+  return null
+}
+
 const KEYWORD_IMGS: Array<{ keys: string[]; url: string }> = [
   // Électronique / tech
   {
@@ -117,6 +121,26 @@ const KEYWORD_IMGS: Array<{ keys: string[]; url: string }> = [
     keys: ['cosmétique', 'cosmetique', 'parfum', 'beauté', 'beaute'],
     url: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=480&q=80&auto=format&fit=crop',
   },
+  {
+    keys: ['frigo', 'réfrigérateur', 'refrigerateur', 'congélateur', 'congelateur', 'électroménager', 'electromenager'],
+    url: 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=480&q=80&auto=format&fit=crop',
+  },
+  {
+    keys: ['glace carbonique', 'carbonique', 'co2', 'brouillard', 'fumée', 'fumee'],
+    url: 'https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=480&q=80&auto=format&fit=crop',
+  },
+  {
+    keys: ['hormone', 'croissance', 'complément', 'complement', 'supplement', 'musculaire', 'masse'],
+    url: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=480&q=80&auto=format&fit=crop',
+  },
+  {
+    keys: ['faux compte', 'compte', 'profil', 'compte secondaire'],
+    url: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=480&q=80&auto=format&fit=crop',
+  },
+  {
+    keys: ['site web', 'site simple', 'vitrine', 'réalisation', 'realisation', 'création site', 'creation site', 'web'],
+    url: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=480&q=80&auto=format&fit=crop',
+  },
 ]
 
 const FALLBACK_IMGS = [
@@ -137,12 +161,13 @@ function getProductImg(id: string, name: string): string {
 }
 
 export function ProductCard({ product }: { product: Product }) {
+  const imgSrc = getUploadedImg(product) ?? getProductImg(product.id, product.name)
   return (
     <Link href={`/market/produit/${product.slug}`} className="card">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className="card-img"
-        src={getProductImg(product.id, product.name)}
+        src={imgSrc}
         alt={product.name}
         loading="lazy"
       />

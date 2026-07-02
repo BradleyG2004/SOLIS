@@ -16,7 +16,7 @@ export const Ingredients: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'name',
-    group: 'SOLIS Bar',
+    group: 'SOLISS Bar',
     defaultColumns: ['name', 'type', 'pricePerUnit', 'available'],
   },
   access: {

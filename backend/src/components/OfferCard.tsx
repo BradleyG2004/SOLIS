@@ -62,7 +62,7 @@ export function OfferCard({ offer }: { offer: LaundryOffer }) {
         <h3>{offer.name}</h3>
         {offer.description && <p className="meta">{offer.description}</p>}
 
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', margin: '0.75rem 0' }}>
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', margin: '12px 0' }}>
           {offer.price != null && (
             <span className="price" style={{ margin: 0 }}>
               À partir de {formatPrice(offer.price)}
@@ -76,10 +76,10 @@ export function OfferCard({ offer }: { offer: LaundryOffer }) {
         </div>
 
         {offer.features && offer.features.length > 0 && (
-          <ul style={{ listStyle: 'none', margin: '0 0 1.1rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+          <ul style={{ listStyle: 'none', margin: '0 0 16px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
             {offer.features.map((f) => (
-              <li key={f.id || f.feature} style={{ display: 'flex', alignItems: 'baseline', gap: '0.45rem', fontSize: '0.83rem', color: 'var(--pole-text-muted, var(--color-muted))' }}>
-                <span style={{ color: 'var(--pole-accent)', fontWeight: 700, fontSize: '0.75rem' }}>✓</span>
+              <li key={f.id || f.feature} style={{ display: 'flex', alignItems: 'baseline', gap: '8px', fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--pole-muted, var(--color-muted))' }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '12px' }}>✓</span>
                 {f.feature}
               </li>
             ))}

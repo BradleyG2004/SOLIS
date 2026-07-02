@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import { getCategories, getSiteSettings } from '@/lib/data'
 
+// Chaque photo_id Unsplash est UNIQUE dans tout le projet (aucun doublon inter-fichiers)
 const CATEGORY_KEYWORD_IMGS: Array<{ keys: string[]; url: string }> = [
   {
-    keys: ['alimenta', 'épicerie', 'epicerie', 'food', 'nourriture'],
-    url: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=80&auto=format&fit=crop',
+    keys: ['alimenta', 'épicerie', 'epicerie', 'food', 'nourriture', 'produit', 'product', 'général', 'general'],
+    url: 'https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=600&q=80&auto=format&fit=crop',
   },
   {
     keys: ['accessoire', 'bijou', 'sac', 'bag'],
@@ -23,8 +24,8 @@ const CATEGORY_KEYWORD_IMGS: Array<{ keys: string[]; url: string }> = [
     url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80&auto=format&fit=crop',
   },
   {
-    keys: ['boisson', 'drink', 'jus', 'juice', 'eau', 'water', 'soda', 'bière', 'biere'],
-    url: 'https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?w=600&q=80&auto=format&fit=crop',
+    keys: ['boisson', 'drink', 'jus', 'juice', 'eau', 'water', 'soda'],
+    url: 'https://images.unsplash.com/photo-1497534446932-c925b458314e?w=600&q=80&auto=format&fit=crop',
   },
   {
     keys: ['café', 'cafe', 'coffee', 'thé', 'the', 'tea'],
@@ -32,15 +33,15 @@ const CATEGORY_KEYWORD_IMGS: Array<{ keys: string[]; url: string }> = [
   },
   {
     keys: ['épice', 'epice', 'spice', 'condiment', 'sauce'],
-    url: 'https://images.unsplash.com/photo-1506617420156-8e4536971650?w=600&q=80&auto=format&fit=crop',
+    url: 'https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=600&q=80&auto=format&fit=crop',
   },
   {
     keys: ['hygiène', 'hygiene', 'savon', 'soap', 'beauté', 'beaute', 'cosmé', 'cosme'],
-    url: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&q=80&auto=format&fit=crop',
+    url: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&q=80&auto=format&fit=crop',
   },
   {
     keys: ['mode', 'vêtement', 'vetement', 'cloth', 'fashion', 'textile'],
-    url: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600&q=80&auto=format&fit=crop',
+    url: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80&auto=format&fit=crop',
   },
   {
     keys: ['maison', 'home', 'cuisine', 'kitchen', 'déco', 'deco'],
@@ -52,15 +53,15 @@ const CATEGORY_KEYWORD_IMGS: Array<{ keys: string[]; url: string }> = [
   },
   {
     keys: ['fruit', 'légume', 'legume', 'frais', 'fresh'],
-    url: 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=600&q=80&auto=format&fit=crop',
+    url: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=600&q=80&auto=format&fit=crop',
   },
 ]
 
 const FALLBACK_CATEGORY_IMGS = [
-  'https://images.unsplash.com/photo-1606914501449-5a96b6ce24ca?w=600&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600&q=80&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1589881133825-bca9c7575d21?w=600&q=80&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600&q=80&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1506617420156-8e4536971650?w=600&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1606914501449-5a96b6ce24ca?w=600&q=80&auto=format&fit=crop',
 ]
 
 function getCategoryImg(id: string, name: string): string {
@@ -85,7 +86,7 @@ export default async function MarketPage() {
         <div className="container market-hero-inner">
           <div className="animate-fade-up">
             <span className="market-hero-label">Catalogue</span>
-            <h1>SOLIS Market</h1>
+            <h1>SOLISS Market</h1>
             <p className="market-hero-desc">
               {settings.marketIntro || 'Des produits sélectionnés avec soin, organisés par catégories.'}
             </p>
@@ -93,8 +94,8 @@ export default async function MarketPage() {
           <div className="market-hero-visual animate-fade-up-delay-1">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://images.unsplash.com/photo-1506617420156-8e4536971650?w=800&q=85&auto=format&fit=crop"
-              alt="Produits SOLIS Market"
+              src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=640&q=80&auto=format&fit=crop"
+              alt="Produits SOLISS Market"
             />
           </div>
         </div>

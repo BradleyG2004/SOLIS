@@ -62,31 +62,37 @@ export default async function ProductPage({ params }: Props) {
       ? product.category
       : null
 
+  const imgSrc =
+    product.image && typeof product.image === 'object' && (product.image as { url?: string }).url
+      ? (product.image as { url: string }).url
+      : getImg(product.id, product.name)
+
   return (
     <div className="theme-market">
       <div className="detail-page container">
-        <Link href={category ? `/market/${category.slug}` : '/market'} className="back-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.85rem', color: 'var(--color-muted)', marginBottom: '1.5rem' }}>
+        <Link href={category ? `/market/${category.slug}` : '/market'} className="back-link" style={{ marginBottom: '24px', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
           ← {category?.name || 'Catalogue'}
         </Link>
 
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="detail-img"
-          src={getImg(product.id, product.name)}
+          src={imgSrc}
           alt={product.name}
         />
 
         {category && (
-          <p style={{ fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--pole-accent)', marginBottom: '0.5rem' }}>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--vb-red)', marginBottom: '8px' }}>
             {category.name}
           </p>
         )}
-        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: '0.5rem' }}>
+        <h1 style={{ marginBottom: '8px' }}>
           {product.name}
         </h1>
         <p className="detail-price">{formatPrice(product.price)}</p>
 
         {product.description && (
-          <p style={{ color: 'var(--color-muted)', lineHeight: 1.75, marginTop: '0.75rem', maxWidth: '60ch' }}>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--vb-muted)', lineHeight: 1.75, marginTop: '16px', maxWidth: '60ch' }}>
             {product.description}
           </p>
         )}

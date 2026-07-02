@@ -21,17 +21,17 @@ export const SiteSettings: GlobalConfig = {
     {
       name: 'marketIntro',
       type: 'textarea',
-      label: 'Introduction SOLIS Market',
+      label: 'Introduction SOLISS Market',
     },
     {
       name: 'barIntro',
       type: 'textarea',
-      label: 'Introduction SOLIS Bar',
+      label: 'Introduction SOLISS Bar',
     },
     {
       name: 'laundryIntro',
       type: 'textarea',
-      label: 'Introduction SOLIS Laundry',
+      label: 'Introduction SOLISS Laundry',
     },
     {
       name: 'paymentNotice',

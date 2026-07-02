@@ -1,10 +1,10 @@
-# SOLIS TRILL
+# SOLISS TRILL
 
-Application monolithe **Next.js + Payload CMS** pour SOLIS TRILL :
+Application monolithe **Next.js + Payload CMS** pour SOLISS TRILL :
 
-- **SOLIS Market** — catalogue produits par catégories
-- **SOLIS Bar** — cocktails signature + configurateur personnalisé
-- **SOLIS Laundry** — offres pressing + devis en ligne
+- **SOLISS Market** — catalogue produits par catégories
+- **SOLISS Bar** — cocktails signature + configurateur personnalisé
+- **SOLISS Laundry** — offres pressing + devis en ligne
 - **/admin** — back-office Payload (gestion du contenu)
 
 ## Architecture
@@ -47,13 +47,13 @@ docker compose exec web npm run seed
 | http://localhost:3000 | Site public |
 | http://localhost:3000/admin | Back-office Payload |
 
-**Compte admin (après seed)** : `admin@solis-trill.fr` / `SolisTrill2025!`  
+**Compte admin (après seed)** : `admin@SOLISS-trill.fr` / `SOLISSTrill2025!`  
 Changez ce mot de passe dès la première connexion.
 
 ## Structure
 
 ```
-SOLIS/
+SOLISS/
 ├── backend/                 # Application monolithe
 │   ├── src/
 │   │   ├── app/
@@ -80,7 +80,7 @@ SOLIS/
 |----------|--------|
 | `DATABASE_URI` | URL interne PostgreSQL Render |
 | `PAYLOAD_SECRET` | Chaîne aléatoire (32+ caractères) |
-| `NEXT_PUBLIC_SERVER_URL` | URL publique Render (ex. `https://solis-trill.onrender.com`) |
+| `NEXT_PUBLIC_SERVER_URL` | URL publique Render (ex. `https://SOLISS-trill.onrender.com`) |
 | `NODE_ENV` | `production` |
 
 4. Build : `npm install && npm run build`
@@ -99,9 +99,9 @@ Connexion à `https://votre-app.onrender.com/admin` :
 
 | Section | Contenu |
 |---------|---------|
-| SOLIS Market | Catégories, produits, prix |
-| SOLIS Bar | Ingrédients, cocktails, matériel |
-| SOLIS Laundry | Offres pressing |
+| SOLISS Market | Catégories, produits, prix |
+| SOLISS Bar | Ingrédients, cocktails, matériel |
+| SOLISS Laundry | Offres pressing |
 | Commandes | Commandes cocktails, demandes de devis |
 
 ## Fonctionnalités

@@ -8,7 +8,7 @@ export const LaundryOffers: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'name',
-    group: 'SOLIS Laundry',
+    group: 'SOLISS Laundry',
     defaultColumns: ['name', 'price', 'deliveryDays', 'isActive'],
   },
   access: {

@@ -19,7 +19,7 @@ async function seed() {
     process.exit(0)
   }
 
-  console.log('Peuplement de la base SOLIS TRILL…')
+  console.log('Peuplement de la base SOLISS TRILL…')
 
   const categoryMap = new Map<string, number | string>()
   for (const cat of categories) {
@@ -100,12 +100,12 @@ async function seed() {
     await payload.create({
       collection: 'users',
       data: {
-        email: 'admin@solis-trill.fr',
-        password: 'SolisTrill2025!',
-        name: 'Administrateur SOLIS',
+        email: 'admin@SOLISS-trill.fr',
+        password: 'SOLISSTrill2025!',
+        name: 'Administrateur SOLISS',
       },
     })
-    console.log('Compte admin créé : admin@solis-trill.fr / SolisTrill2025!')
+    console.log('Compte admin créé : admin@SOLISS-trill.fr / SOLISSTrill2025!')
     console.log('⚠️  Changez ce mot de passe après la première connexion.')
   }
 

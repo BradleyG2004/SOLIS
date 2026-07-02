@@ -3,16 +3,16 @@ import './globals.css'
 import { Footer, Header } from '@/components/Layout'
 
 export const metadata: Metadata = {
-  title: 'SOLIS TRILL',
-  description: 'SOLIS Market · SOLIS Bar · SOLIS Laundry',
+  title: 'SOLISS TRILL',
+  description: 'SOLISS Market · SOLISS Bar · SOLISS Laundry',
 }
 
 export default function FrontendLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <div className="vb-root">
       <Header />
       <main>{children}</main>
       <Footer />
-    </>
+    </div>
   )
 }

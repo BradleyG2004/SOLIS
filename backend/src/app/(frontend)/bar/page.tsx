@@ -16,7 +16,7 @@ export default async function BarPage() {
         <div className="container bar-hero-inner">
           <div className="animate-fade-up">
             <span className="bar-hero-label">Bar à cocktails</span>
-            <h1>SOLIS Bar</h1>
+            <h1>SOLISS Bar</h1>
             <p className="bar-hero-desc">
               {settings.barIntro || 'Cocktails signature et créations personnalisées.'}
             </p>
@@ -30,9 +30,10 @@ export default async function BarPage() {
             </div>
           </div>
           <div className="bar-hero-visual animate-fade-up-delay-1">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://images.unsplash.com/photo-1470338745628-171cf53de3a8?w=800&q=85&auto=format&fit=crop"
-              alt="SOLIS Bar — cocktails"
+              src="https://images.unsplash.com/photo-1574096079513-d8259312b785?w=800&q=85&auto=format&fit=crop"
+              alt="SOLISS Bar — cocktails"
             />
           </div>
         </div>
@@ -42,7 +43,7 @@ export default async function BarPage() {
       <section className="section container" id="carte">
         <h2 className="section-title">Cocktails signature</h2>
         {cocktails.length === 0 ? (
-          <p style={{ color: 'var(--color-muted)' }}>Aucun cocktail disponible pour le moment.</p>
+          <p style={{ color: 'var(--pole-muted, var(--color-muted))' }}>Aucun cocktail disponible pour le moment.</p>
         ) : (
           <div className="grid">
             {cocktails.map((cocktail) => (

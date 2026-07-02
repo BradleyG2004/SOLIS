@@ -1,6 +1,14 @@
 import Link from 'next/link'
 import { formatPrice } from '@/lib/format'
-import type { Cocktail } from '@/lib/types'
+import type { Cocktail, Media } from '@/lib/types'
+
+function getUploadedImg(cocktail: Cocktail): string | null {
+  if (!cocktail.image) return null
+  if (typeof cocktail.image === 'object' && (cocktail.image as Media).url) {
+    return (cocktail.image as Media).url!
+  }
+  return null
+}
 
 const KEYWORD_IMGS: Array<{ keys: string[]; url: string }> = [
   {
@@ -56,12 +64,13 @@ function getCocktailImg(id: string, name: string): string {
 }
 
 export function CocktailCard({ cocktail }: { cocktail: Cocktail }) {
+  const imgSrc = getUploadedImg(cocktail) ?? getCocktailImg(cocktail.id, cocktail.name)
   return (
     <Link href={`/bar/cocktails/${cocktail.slug}`} className="card">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className="card-img"
-        src={getCocktailImg(cocktail.id, cocktail.name)}
+        src={imgSrc}
         alt={cocktail.name}
         loading="lazy"
       />

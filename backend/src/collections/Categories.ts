@@ -8,7 +8,7 @@ export const Categories: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'name',
-    group: 'SOLIS Market',
+    group: 'SOLISS Market',
     defaultColumns: ['name', 'slug', 'isActive'],
   },
   access: {

@@ -50,31 +50,36 @@ export default async function CocktailDetailPage({ params }: Props) {
   const cocktail = await getCocktailBySlug(slug)
   if (!cocktail) notFound()
 
+  const imgSrc =
+    cocktail.image && typeof cocktail.image === 'object' && (cocktail.image as { url?: string }).url
+      ? (cocktail.image as { url: string }).url
+      : getImg(cocktail.id, cocktail.name)
+
   return (
     <div className="theme-bar">
       <div className="detail-page container">
-        <Link href="/bar" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.85rem', color: 'var(--color-muted)', marginBottom: '1.5rem' }}>
+        <Link href="/bar" className="back-link" style={{ marginBottom: '24px', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
           ← Bar
         </Link>
 
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="detail-img"
-          src={getImg(cocktail.id, cocktail.name)}
+          src={imgSrc}
           alt={cocktail.name}
-          style={{ boxShadow: '0 20px 60px rgba(0,0,0,.5)' }}
         />
 
-        <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--pole-accent)', marginBottom: '0.5rem' }}>
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--vb-red)', marginBottom: '8px' }}>
           Cocktail signature
         </p>
-        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, color: 'var(--pole-text)', marginBottom: '0.5rem' }}>
+        <h1 style={{ color: 'var(--pole-text)', marginBottom: '8px' }}>
           {cocktail.name}
         </h1>
         {cocktail.price != null && (
           <p className="detail-price">{formatPrice(cocktail.price)}</p>
         )}
         {cocktail.description && (
-          <p style={{ color: 'var(--pole-text-muted)', lineHeight: 1.75, marginTop: '0.75rem', maxWidth: '58ch' }}>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--pole-muted)', lineHeight: 1.75, marginTop: '16px', maxWidth: '58ch' }}>
             {cocktail.description}
           </p>
         )}
@@ -82,10 +87,10 @@ export default async function CocktailDetailPage({ params }: Props) {
         {cocktail.composition && cocktail.composition.length > 0 && (
           <>
             <h2 className="detail-section-title">Composition</h2>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', listStyle: 'none' }}>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '8px', listStyle: 'none' }}>
               {cocktail.composition.map((item, i) => (
-                <li key={item.id || i} style={{ fontSize: '0.9rem', color: 'var(--pole-text-muted)', display: 'flex', gap: '0.5rem' }}>
-                  <span style={{ color: 'var(--pole-accent)', fontWeight: 600 }}>·</span>
+                <li key={item.id || i} style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--pole-muted)', display: 'flex', gap: '8px', alignItems: 'baseline' }}>
+                  <span style={{ color: 'var(--vb-red)', fontWeight: 700, fontSize: '12px' }}>—</span>
                   {getIngredientName(item)} — {item.quantity} {item.unit}
                 </li>
               ))}
@@ -96,10 +101,10 @@ export default async function CocktailDetailPage({ params }: Props) {
         {cocktail.equipment && cocktail.equipment.length > 0 && (
           <>
             <h2 className="detail-section-title">Matériel</h2>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', listStyle: 'none' }}>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '8px', listStyle: 'none' }}>
               {cocktail.equipment.map((eq, i) => (
-                <li key={i} style={{ fontSize: '0.9rem', color: 'var(--pole-text-muted)', display: 'flex', gap: '0.5rem' }}>
-                  <span style={{ color: 'var(--pole-accent)', fontWeight: 600 }}>·</span>
+                <li key={i} style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--pole-muted)', display: 'flex', gap: '8px', alignItems: 'baseline' }}>
+                  <span style={{ color: 'var(--vb-red)', fontWeight: 700, fontSize: '12px' }}>—</span>
                   {getEquipmentName(eq)}
                 </li>
               ))}
@@ -110,7 +115,7 @@ export default async function CocktailDetailPage({ params }: Props) {
         {cocktail.instructions && (
           <>
             <h2 className="detail-section-title">Préparation</h2>
-            <p style={{ color: 'var(--pole-text-muted)', lineHeight: 1.75, fontSize: '0.95rem' }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--pole-muted)', lineHeight: 1.75 }}>
               {cocktail.instructions}
             </p>
           </>

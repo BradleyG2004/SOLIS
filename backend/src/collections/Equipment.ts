@@ -8,7 +8,7 @@ export const Equipment: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'name',
-    group: 'SOLIS Bar',
+    group: 'SOLISS Bar',
   },
   access: {
     read: () => true,

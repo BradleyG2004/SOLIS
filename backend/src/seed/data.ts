@@ -42,7 +42,7 @@ export const productsByCategory: Record<
   Array<{ name: string; slug: string; description: string; price: number }>
 > = {
   accessoires: [
-    { name: 'Tote bag SOLIS', slug: 'tote-bag-solis', description: 'Sac en coton bio, édition limitée.', price: 24.9 },
+    { name: 'Tote bag SOLISS', slug: 'tote-bag-SOLISS', description: 'Sac en coton bio, édition limitée.', price: 24.9 },
     { name: 'Porte-clés Trill', slug: 'porte-cles-trill', description: 'Métal brossé, finition mate.', price: 12.5 },
     { name: 'Écharpe lin', slug: 'echarpe-lin', description: 'Lin lavé, coloris sable.', price: 45 },
     { name: 'Carnet artisanal', slug: 'carnet-artisanal', description: 'Papier recyclé, reliure cousue.', price: 18 },
@@ -58,24 +58,29 @@ export const productsByCategory: Record<
     { name: 'Batterie externe 10 000 mAh', slug: 'batterie-externe', description: 'Charge rapide USB-C.', price: 29.9 },
     { name: 'Support téléphone', slug: 'support-telephone', description: 'Aluminium, réglable.', price: 19.9 },
     { name: 'Câble USB-C 2 m', slug: 'cable-usbc', description: 'Nylon tressé, charge et données.', price: 12.9 },
+    { name: 'Frigo compact', slug: 'frigo-compact', description: 'Mini-réfrigérateur 30 L. Idéal chambre ou bureau. Disponible sur commande.', price: 89 },
   ],
   'coin-fumeur': [
     { name: 'Cendrier design', slug: 'cendrier-design', description: 'Céramique émaillée, format poche.', price: 15 },
     { name: 'Étui cuir', slug: 'etui-cuir', description: 'Cuir végétal, finition sobre.', price: 22 },
     { name: 'Briquet rechargeable', slug: 'briquet-rechargeable', description: 'Flamme électrique, USB.', price: 18.5 },
     { name: 'Porte-cigarettes', slug: 'porte-cigarettes', description: 'Métal laqué, 20 unités.', price: 8.9 },
+    { name: 'Glace carbonique', slug: 'glace-carbonique', description: 'Bloc de CO₂ solide pour ambiance et effets visuels. Vente sur place uniquement.', price: 8 },
   ],
   'bien-etre': [
     { name: 'Huile essentielle lavande', slug: 'he-lavande', description: 'Flacon 10 ml, 100 % pure.', price: 11.9 },
     { name: 'Bougie cire soja', slug: 'bougie-soja', description: 'Parfum vanille, 40 h.', price: 16.5 },
     { name: 'Roll-on détente', slug: 'roll-on-detente', description: 'Mélange huiles essentielles.', price: 13.9 },
     { name: 'Sels de bain', slug: 'sels-de-bain', description: 'Sachet 300 g, eucalyptus.', price: 9.5 },
+    { name: 'Hormones de croissance', slug: 'hormones-croissance', description: 'Complément naturel stimulant la croissance musculaire. Dosage conseillé à respecter.', price: 35 },
   ],
   numerique: [
-    { name: 'Carte cadeau 25 €', slug: 'carte-cadeau-25', description: 'Valable sur SOLIS Market.', price: 25 },
-    { name: 'Carte cadeau 50 €', slug: 'carte-cadeau-50', description: 'Valable sur SOLIS Market.', price: 50 },
+    { name: 'Carte cadeau 25 €', slug: 'carte-cadeau-25', description: 'Valable sur SOLISS Market.', price: 25 },
+    { name: 'Carte cadeau 50 €', slug: 'carte-cadeau-50', description: 'Valable sur SOLISS Market.', price: 50 },
     { name: 'Recharge mobile 10 €', slug: 'recharge-10', description: 'Opérateurs partenaires.', price: 10 },
     { name: 'Abonnement streaming 1 mois', slug: 'streaming-1-mois', description: 'Code d\'activation partenaire.', price: 12.99 },
+    { name: 'Faux compte', slug: 'faux-compte', description: 'Création de compte secondaire sur plateformes partenaires. Discret et sécurisé.', price: 5 },
+    { name: 'Réalisation de site simple', slug: 'realisation-site-simple', description: 'Site vitrine clé en main. Délai 5–7 jours. Devis sur demande.', price: 150 },
   ],
 }
 
@@ -107,8 +112,8 @@ export const equipment = [
 
 export const cocktails = [
   {
-    name: 'Mojito SOLIS',
-    slug: 'mojito-solis',
+    name: 'Mojito SOLISS',
+    slug: 'mojito-SOLISS',
     description: 'Classique rafraîchissant aux notes de menthe.',
     instructions: 'Piler la menthe avec le sirop, ajouter le rhum, le citron vert et compléter au glaçon.',
     price: 9.5,
@@ -220,7 +225,7 @@ export const laundryOffers = [
 export const siteSettings = {
   homeTagline: 'Trois univers, une même exigence.',
   homeDescription:
-    'SOLIS TRILL réunit un market curaté, un bar créatif et un service de pressing à domicile. Découvrez nos trois pôles.',
+    'SOLISS TRILL réunit un market curaté, un bar créatif et un service de pressing à domicile. Découvrez nos trois pôles.',
   marketIntro:
     'Parcourez notre sélection par catégories : accessoires, épicerie, tech, bien-être et plus encore.',
   barIntro:

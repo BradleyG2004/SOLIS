@@ -3,15 +3,15 @@ services:
     image: postgres:16-alpine
     restart: unless-stopped
     environment:
-      POSTGRES_USER: solis
-      POSTGRES_PASSWORD: solis
-      POSTGRES_DB: solis
+      POSTGRES_USER: SOLISS
+      POSTGRES_PASSWORD: SOLISS
+      POSTGRES_DB: SOLISS
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U solis -d solis"]
+      test: ["CMD-SHELL", "pg_isready -U SOLISS -d SOLISS"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -24,9 +24,9 @@ services:
     ports:
       - "3000:3000"
     environment:
-      DATABASE_URI: postgresql://solis:solis@postgres:5432/solis
+      DATABASE_URI: postgresql://SOLISS:SOLISS@postgres:5432/SOLISS
       PAYLOAD_SECRET: dev-secret-changez-en-production
-      NEXT_PUBLIC_SERVER_URL: http://localhost:3000
+      NEXT_PUBLIC_SERVER_URL: https://hybrid-hertz-stowing.ngrok-free.dev
       NODE_ENV: development
     volumes:
       - ./backend:/app

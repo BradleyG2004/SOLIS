@@ -8,7 +8,7 @@ export const Cocktails: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'name',
-    group: 'SOLIS Bar',
+    group: 'SOLISS Bar',
     defaultColumns: ['name', 'price', 'isActive'],
   },
   access: {
