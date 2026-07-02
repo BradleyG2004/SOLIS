@@ -4,3 +4,5 @@ node_modules
 *.md
 .env
 .env.*
+*.tsbuildinfo
+tsconfig.tsbuildinfo
