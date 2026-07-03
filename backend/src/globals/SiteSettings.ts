@@ -5,6 +5,7 @@ export const SiteSettings: GlobalConfig = {
   label: 'Paramètres du site',
   access: {
     read: () => true,
+    update: ({ req }) => Boolean(req.user),
   },
   fields: [
     {

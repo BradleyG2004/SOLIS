@@ -13,8 +13,12 @@ const CATEGORY_KEYWORD_IMGS: Array<{ keys: string[]; url: string }> = [
     url: 'https://images.unsplash.com/photo-1547949003-9792a18a2601?w=600&q=80&auto=format&fit=crop',
   },
   {
-    keys: ['électronique', 'electronique', 'tech', 'phone', 'mobile', 'numérique', 'numerique', 'distrib'],
+    keys: ['électronique', 'electronique', 'tech', 'phone', 'mobile'],
     url: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=600&q=80&auto=format&fit=crop',
+  },
+  {
+    keys: ['numérique', 'numerique', 'distrib', 'carte cadeau', 'recharge'],
+    url: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80&auto=format&fit=crop',
   },
   {
     keys: ['coin fumeur', 'fumeur', 'tabac', 'cigare', 'cigarette'],
