@@ -54,7 +54,7 @@ export const Ingredients: CollectionConfig = {
     {
       name: 'pricePerUnit',
       type: 'number',
-      label: 'Prix unitaire (€)',
+      label: 'Prix unitaire (FCFA)',
       min: 0,
       defaultValue: 0,
     },

@@ -44,7 +44,7 @@ export const Cocktails: CollectionConfig = {
     {
       name: 'price',
       type: 'number',
-      label: 'Prix indicatif (€)',
+      label: 'Prix indicatif (FCFA)',
       min: 0,
     },
     {

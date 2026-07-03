@@ -80,7 +80,7 @@ export const CocktailOrders: CollectionConfig = {
     {
       name: 'estimatedPrice',
       type: 'number',
-      label: 'Prix estimé (€)',
+      label: 'Prix estimé (FCFA)',
     },
     {
       name: 'status',

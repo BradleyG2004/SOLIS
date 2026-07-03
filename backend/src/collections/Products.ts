@@ -39,7 +39,7 @@ export const Products: CollectionConfig = {
     {
       name: 'price',
       type: 'number',
-      label: 'Prix (€)',
+      label: 'Prix (FCFA)',
       required: true,
       min: 0,
     },

@@ -39,7 +39,7 @@ export const LaundryOffers: CollectionConfig = {
     {
       name: 'price',
       type: 'number',
-      label: 'Prix à partir de (€)',
+      label: 'Prix à partir de (FCFA)',
       min: 0,
     },
     {
