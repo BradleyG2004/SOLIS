@@ -27,7 +27,7 @@ async function seed() {
       collection: 'categories',
       data: { ...cat, isActive: true },
     })
-    categoryMap.set(cat.slug, doc.id)
+    categoryMap.set(cat.slug, Number(doc.id))
   }
 
   for (const [categorySlug, products] of Object.entries(productsByCategory)) {
@@ -51,13 +51,13 @@ async function seed() {
       collection: 'ingredients',
       data: { ...ing, available: true },
     })
-    ingredientMap.set(ing.slug, doc.id)
+    ingredientMap.set(ing.slug, Number(doc.id))
   }
 
   const equipmentMap = new Map<string, number>()
   for (const eq of equipment) {
     const doc = await payload.create({ collection: 'equipment', data: eq })
-    equipmentMap.set(eq.name, doc.id)
+    equipmentMap.set(eq.name, Number(doc.id))
   }
 
   for (const cocktail of cocktails) {
