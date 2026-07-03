@@ -9,7 +9,7 @@ export const Products: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
     group: 'SOLISS Market',
-    defaultColumns: ['name', 'category', 'price', 'isActive'],
+    defaultColumns: ['name', 'category', 'price', 'image', 'isActive'],
   },
   access: {
     read: () => true,

@@ -9,7 +9,7 @@ export const LaundryOffers: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
     group: 'SOLISS Laundry',
-    defaultColumns: ['name', 'price', 'deliveryDays', 'isActive'],
+    defaultColumns: ['name', 'price', 'deliveryDays', 'image', 'isActive'],
   },
   access: {
     read: () => true,
@@ -57,6 +57,12 @@ export const LaundryOffers: CollectionConfig = {
           required: true,
         },
       ],
+    },
+    {
+      name: 'image',
+      type: 'upload',
+      label: 'Image',
+      relationTo: 'media',
     },
     {
       name: 'isActive',

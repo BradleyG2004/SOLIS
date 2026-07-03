@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getCategories, getSiteSettings } from '@/lib/data'
+import type { Category, Media } from '@/lib/types'
 
 // Chaque photo_id Unsplash est UNIQUE dans tout le projet (aucun doublon inter-fichiers)
 const CATEGORY_KEYWORD_IMGS: Array<{ keys: string[]; url: string }> = [
@@ -73,6 +74,14 @@ function getCategoryImg(id: string | number, name: string): string {
   return FALLBACK_CATEGORY_IMGS[idx]
 }
 
+function getUploadedImg(category: Category): string | null {
+  if (!category.image) return null
+  if (typeof category.image === 'object' && (category.image as Media).url) {
+    return (category.image as Media).url!
+  }
+  return null
+}
+
 export default async function MarketPage() {
   const [categories, settings] = await Promise.all([
     getCategories(),
@@ -109,7 +118,7 @@ export default async function MarketPage() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 className="card-img"
-                src={getCategoryImg(cat.id, cat.name)}
+                src={getUploadedImg(cat) ?? getCategoryImg(cat.id, cat.name)}
                 alt={cat.name}
                 loading="lazy"
               />

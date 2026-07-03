@@ -9,7 +9,7 @@ export const Categories: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
     group: 'SOLISS Market',
-    defaultColumns: ['name', 'slug', 'isActive'],
+    defaultColumns: ['name', 'slug', 'image', 'isActive'],
   },
   access: {
     read: () => true,
@@ -41,6 +41,12 @@ export const Categories: CollectionConfig = {
       type: 'number',
       label: 'Ordre d\'affichage',
       defaultValue: 0,
+    },
+    {
+      name: 'image',
+      type: 'upload',
+      label: 'Image',
+      relationTo: 'media',
     },
     {
       name: 'isActive',

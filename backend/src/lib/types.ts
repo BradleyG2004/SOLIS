@@ -4,6 +4,7 @@ export type Category = {
   slug: string
   description?: string | null
   order?: number | null
+  image?: Media | number | null
   isActive?: boolean | null
 }
 
@@ -70,6 +71,7 @@ export type LaundryOffer = {
   price?: number | null
   deliveryDays?: number | null
   features?: { feature: string; id?: string | null }[] | null
+  image?: Media | number | null
   isActive?: boolean | null
 }
 

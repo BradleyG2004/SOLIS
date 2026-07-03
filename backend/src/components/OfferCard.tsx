@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { formatPrice } from '@/lib/format'
-import type { LaundryOffer } from '@/lib/types'
+import type { LaundryOffer, Media } from '@/lib/types'
 
 const KEYWORD_IMGS: Array<{ keys: string[]; url: string }> = [
   {
@@ -48,13 +48,21 @@ function getOfferImg(id: string | number, name: string): string {
   return FALLBACK_IMGS[idx]
 }
 
+function getUploadedImg(offer: LaundryOffer): string | null {
+  if (!offer.image) return null
+  if (typeof offer.image === 'object' && (offer.image as Media).url) {
+    return (offer.image as Media).url!
+  }
+  return null
+}
+
 export function OfferCard({ offer }: { offer: LaundryOffer }) {
   return (
     <article className="card">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className="card-img"
-        src={getOfferImg(offer.id, offer.name)}
+        src={getUploadedImg(offer) ?? getOfferImg(offer.id, offer.name)}
         alt={offer.name}
         loading="lazy"
       />

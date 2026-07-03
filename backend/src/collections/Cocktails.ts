@@ -9,7 +9,7 @@ export const Cocktails: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
     group: 'SOLISS Bar',
-    defaultColumns: ['name', 'price', 'isActive'],
+    defaultColumns: ['name', 'price', 'image', 'isActive'],
   },
   access: {
     read: () => true,
