@@ -1,5 +1,5 @@
 export type Category = {
-  id: string
+  id: number
   name: string
   slug: string
   description?: string | null
@@ -8,25 +8,25 @@ export type Category = {
 }
 
 export type Product = {
-  id: string
+  id: number
   name: string
   slug: string
   description?: string | null
   price: number
-  category: Category | string
-  image?: Media | string | null
+  category: Category | number
+  image?: Media | number | null
   isActive?: boolean | null
 }
 
 export type Media = {
-  id: string
+  id: number
   url?: string | null
   alt?: string | null
   filename?: string | null
 }
 
 export type Ingredient = {
-  id: string
+  id: number
   name: string
   slug: string
   type: string
@@ -37,33 +37,33 @@ export type Ingredient = {
 }
 
 export type Equipment = {
-  id: string
+  id: number
   name: string
   description?: string | null
 }
 
 export type CocktailComposition = {
-  ingredient: Ingredient | string
+  ingredient: Ingredient | number
   quantity: number
   unit: string
   id?: string | null
 }
 
 export type Cocktail = {
-  id: string
+  id: number
   name: string
   slug: string
   description?: string | null
   instructions?: string | null
   price?: number | null
-  image?: Media | string | null
+  image?: Media | number | null
   composition?: CocktailComposition[] | null
-  equipment?: (Equipment | string)[] | null
+  equipment?: (Equipment | number)[] | null
   isActive?: boolean | null
 }
 
 export type LaundryOffer = {
-  id: string
+  id: number
   name: string
   slug: string
   description?: string | null

@@ -27,7 +27,7 @@ export async function createQuoteRequest(data: {
   customerName: string
   email: string
   phone?: string
-  offer?: string
+  offer?: number
   items: { itemType: string; quantity: number }[]
   notes?: string
 }) {

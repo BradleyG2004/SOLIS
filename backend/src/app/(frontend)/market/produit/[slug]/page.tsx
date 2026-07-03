@@ -40,12 +40,12 @@ const DETAIL_FALLBACK_IMGS = [
   'https://images.unsplash.com/photo-1606914501449-5a96b6ce24ca?w=900&q=85&auto=format&fit=crop',
 ]
 
-function getImg(id: string, name: string) {
+function getImg(id: string | number, name: string) {
   const lower = (name ?? '').toLowerCase()
   for (const entry of DETAIL_KEYWORD_IMGS) {
     if (entry.keys.some((k) => lower.includes(k))) return entry.url
   }
-  const idx = id.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0) % DETAIL_FALLBACK_IMGS.length
+  const idx = String(id).split('').reduce((acc, c) => acc + c.charCodeAt(0), 0) % DETAIL_FALLBACK_IMGS.length
   return DETAIL_FALLBACK_IMGS[idx]
 }
 

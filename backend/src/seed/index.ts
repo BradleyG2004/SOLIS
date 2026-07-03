@@ -21,7 +21,7 @@ async function seed() {
 
   console.log('Peuplement de la base SOLISS TRILL…')
 
-  const categoryMap = new Map<string, number | string>()
+  const categoryMap = new Map<string, number>()
   for (const cat of categories) {
     const doc = await payload.create({
       collection: 'categories',
@@ -45,7 +45,7 @@ async function seed() {
     }
   }
 
-  const ingredientMap = new Map<string, number | string>()
+  const ingredientMap = new Map<string, number>()
   for (const ing of ingredients) {
     const doc = await payload.create({
       collection: 'ingredients',
@@ -54,7 +54,7 @@ async function seed() {
     ingredientMap.set(ing.slug, doc.id)
   }
 
-  const equipmentMap = new Map<string, number | string>()
+  const equipmentMap = new Map<string, number>()
   for (const eq of equipment) {
     const doc = await payload.create({ collection: 'equipment', data: eq })
     equipmentMap.set(eq.name, doc.id)
@@ -74,7 +74,7 @@ async function seed() {
         })),
         equipment: equipmentNames
           .map((name) => equipmentMap.get(name))
-          .filter(Boolean) as (number | string)[],
+          .filter((id): id is number => id !== undefined),
       },
     })
   }

@@ -81,7 +81,14 @@ export const productsByCategory: Record<
   ],
 }
 
-export const ingredients = [
+export const ingredients: Array<{
+  name: string
+  slug: string
+  type: 'alcool' | 'jus' | 'sirop' | 'garniture' | 'autre'
+  description: string
+  pricePerUnit: number
+  unit: string
+}> = [
   { name: 'Rhum blanc', slug: 'rhum-blanc', type: 'alcool', description: 'Rhum agricole léger.', pricePerUnit: 2.5, unit: 'cl' },
   { name: 'Vodka', slug: 'vodka', type: 'alcool', description: 'Vodka neutre premium.', pricePerUnit: 2.2, unit: 'cl' },
   { name: 'Gin', slug: 'gin', type: 'alcool', description: 'Gin aux notes botaniques.', pricePerUnit: 2.8, unit: 'cl' },

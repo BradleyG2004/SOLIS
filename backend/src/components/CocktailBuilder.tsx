@@ -21,13 +21,14 @@ export function CocktailBuilder({ ingredients }: { ingredients: Ingredient[] }) 
   const [errorMsg, setErrorMsg] = useState('')
 
   const addIngredient = (ingredientId: string) => {
-    const ingredient = ingredients.find((i) => i.id === ingredientId)
+    const id = Number(ingredientId)
+    const ingredient = ingredients.find((i) => i.id === id)
     if (!ingredient) return
-    if (selected.some((s) => s.ingredient.id === ingredientId)) return
+    if (selected.some((s) => s.ingredient.id === id)) return
     setSelected([...selected, { ingredient, quantity: 2 }])
   }
 
-  const updateQuantity = (id: string, quantity: number) => {
+  const updateQuantity = (id: number, quantity: number) => {
     setSelected(
       selected.map((s) =>
         s.ingredient.id === id ? { ...s, quantity: Math.max(0.5, quantity) } : s,
@@ -35,7 +36,7 @@ export function CocktailBuilder({ ingredients }: { ingredients: Ingredient[] }) 
     )
   }
 
-  const removeIngredient = (id: string) => {
+  const removeIngredient = (id: number) => {
     setSelected(selected.filter((s) => s.ingredient.id !== id))
   }
 

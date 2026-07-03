@@ -64,7 +64,7 @@ const FALLBACK_CATEGORY_IMGS = [
   'https://images.unsplash.com/photo-1606914501449-5a96b6ce24ca?w=600&q=80&auto=format&fit=crop',
 ]
 
-function getCategoryImg(id: string, name: string): string {
+function getCategoryImg(id: string | number, name: string): string {
   const lower = (name ?? '').toLowerCase()
   for (const entry of CATEGORY_KEYWORD_IMGS) {
     if (entry.keys.some((k) => lower.includes(k))) return entry.url

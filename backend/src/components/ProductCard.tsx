@@ -151,7 +151,7 @@ const FALLBACK_IMGS = [
   'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=480&q=80&auto=format&fit=crop',
 ]
 
-function getProductImg(id: string, name: string): string {
+function getProductImg(id: string | number, name: string): string {
   const lower = (name ?? '').toLowerCase()
   for (const entry of KEYWORD_IMGS) {
     if (entry.keys.some((k) => lower.includes(k))) return entry.url

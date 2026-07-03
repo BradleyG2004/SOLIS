@@ -34,7 +34,7 @@ export async function getCategoryBySlug(slug: string): Promise<Category | null> 
   return (result.docs[0] as Category) ?? null
 }
 
-export async function getProductsByCategory(categoryId: string): Promise<Product[]> {
+export async function getProductsByCategory(categoryId: string | number): Promise<Product[]> {
   const payload = await getPayloadClient()
   const result = await payload.find({
     collection: 'products',

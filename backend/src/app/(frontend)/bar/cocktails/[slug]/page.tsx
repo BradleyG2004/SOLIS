@@ -25,12 +25,12 @@ const COCKTAIL_FALLBACK_IMGS = [
   'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=900&q=85&auto=format&fit=crop',
 ]
 
-function getImg(id: string, name: string) {
+function getImg(id: string | number, name: string) {
   const lower = (name ?? '').toLowerCase()
   for (const entry of COCKTAIL_KEYWORD_IMGS) {
     if (entry.keys.some((k) => lower.includes(k))) return entry.url
   }
-  const idx = id.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0) % COCKTAIL_FALLBACK_IMGS.length
+  const idx = String(id).split('').reduce((acc, c) => acc + c.charCodeAt(0), 0) % COCKTAIL_FALLBACK_IMGS.length
   return COCKTAIL_FALLBACK_IMGS[idx]
 }
 
@@ -40,7 +40,7 @@ function getIngredientName(item: CocktailComposition) {
   return 'Ingrédient'
 }
 
-function getEquipmentName(eq: Equipment | string) {
+function getEquipmentName(eq: Equipment | number) {
   if (typeof eq === 'object' && eq !== null) return eq.name
   return ''
 }
