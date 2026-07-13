@@ -4,6 +4,7 @@ import { PaymentBadge } from '@/components/PaymentBadge'
 import { getProductBySlug, getSiteSettings } from '@/lib/data'
 import { formatPrice } from '@/lib/format'
 import { buildWhatsAppLink } from '@/lib/whatsapp'
+import type { SiteSettings } from '@/lib/types'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -54,7 +55,9 @@ export default async function ProductPage({ params }: Props) {
   const { slug } = await params
   const [product, settings] = await Promise.all([
     getProductBySlug(slug),
-    getSiteSettings().catch(() => ({ paymentNotice: undefined })),
+    getSiteSettings().catch(
+      (): SiteSettings => ({ paymentNotice: undefined, whatsappNumber: undefined }),
+    ),
   ])
   if (!product) notFound()
 
