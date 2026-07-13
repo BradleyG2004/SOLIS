@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { createCocktailOrder } from '@/lib/client-api'
 import { formatPrice } from '@/lib/format'
+import { buildWhatsAppLink } from '@/lib/whatsapp'
 import type { Ingredient } from '@/lib/types'
 
 type SelectedIngredient = {
@@ -10,7 +11,13 @@ type SelectedIngredient = {
   quantity: number
 }
 
-export function CocktailBuilder({ ingredients }: { ingredients: Ingredient[] }) {
+export function CocktailBuilder({
+  ingredients,
+  whatsappNumber,
+}: {
+  ingredients: Ingredient[]
+  whatsappNumber?: string | null
+}) {
   const [cocktailName, setCocktailName] = useState('Mon cocktail')
   const [selected, setSelected] = useState<SelectedIngredient[]>([])
   const [customerName, setCustomerName] = useState('')
@@ -69,6 +76,14 @@ export function CocktailBuilder({ ingredients }: { ingredients: Ingredient[] }) 
         })),
       })
       setStatus('success')
+
+      if (whatsappNumber) {
+        const compositionText = selected
+          .map((s) => `- ${s.ingredient.name} — ${s.quantity} ${s.ingredient.unit}`)
+          .join('\n')
+        const message = `Bonjour, je viens de commander un cocktail personnalisé :\n\n*${cocktailName}*\n${compositionText}\n\nPrix estimé : ${formatPrice(estimatedPrice)}\n\nNom : ${customerName}\nTéléphone : ${phone || 'non renseigné'}`
+        window.open(buildWhatsAppLink(whatsappNumber, message), '_blank', 'noopener,noreferrer')
+      }
     } catch (err) {
       setStatus('error')
       setErrorMsg(err instanceof Error ? err.message : 'Erreur lors de la commande.')

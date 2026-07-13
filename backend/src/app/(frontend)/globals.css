@@ -470,27 +470,27 @@ html {
 /* Pole buttons */
 .pole-btn-market,
 .pole-btn-laundry {
-  background: var(--vb-black);
+  background: var(--vb-red);
   color: var(--vb-white);
-  border: 2px solid var(--vb-black);
+  border: 2px solid var(--vb-red);
 }
 
 .pole-btn-market:hover,
 .pole-btn-laundry:hover {
-  background: var(--vb-red);
-  border-color: var(--vb-red);
+  background: var(--vb-red-dk);
+  border-color: var(--vb-red-dk);
 }
 
 .pole-btn-bar {
-  background: var(--vb-white);
-  color: var(--vb-black);
-  border: 2px solid var(--vb-white);
+  background: var(--vb-red);
+  color: var(--vb-white);
+  border: 2px solid var(--vb-red);
 }
 
 .pole-btn-bar:hover {
-  background: var(--vb-red);
+  background: var(--vb-red-dk);
   color: var(--vb-white);
-  border-color: var(--vb-red);
+  border-color: var(--vb-red-dk);
 }
 
 /* ─── Grid produits ──────────────────────────────────────────── */
@@ -609,8 +609,8 @@ html {
   justify-content: center;
   gap: var(--sp-2);
   padding: 10px 24px;
-  border: 2px solid var(--vb-black);
-  background: var(--vb-black);
+  border: 2px solid var(--vb-red);
+  background: var(--vb-red);
   color: var(--vb-white);
   font-family: var(--font-body);
   font-size: 14px;
@@ -624,8 +624,8 @@ html {
 }
 
 .btn:hover {
-  background: var(--vb-red);
-  border-color: var(--vb-red);
+  background: var(--vb-red-dk);
+  border-color: var(--vb-red-dk);
   color: var(--vb-white);
   text-decoration: none;
 }
@@ -636,14 +636,14 @@ html {
 }
 
 .btn-primary {
-  background: var(--pole-text, var(--vb-black));
-  color: var(--pole-bg, var(--vb-white));
-  border-color: var(--pole-text, var(--vb-black));
+  background: var(--vb-red);
+  color: var(--vb-white);
+  border-color: var(--vb-red);
 }
 
 .btn-primary:hover {
-  background: var(--vb-red);
-  border-color: var(--vb-red);
+  background: var(--vb-red-dk);
+  border-color: var(--vb-red-dk);
   color: var(--vb-white);
 }
 
@@ -858,15 +858,15 @@ html {
 }
 
 .bar-cta-primary {
-  background: var(--vb-white);
-  color: var(--vb-black);
-  border-color: var(--vb-white);
-}
-
-.bar-cta-primary:hover {
   background: var(--vb-red);
   color: var(--vb-white);
   border-color: var(--vb-red);
+}
+
+.bar-cta-primary:hover {
+  background: var(--vb-red-dk);
+  color: var(--vb-white);
+  border-color: var(--vb-red-dk);
 }
 
 .bar-cta-ghost {
@@ -967,14 +967,14 @@ html {
 }
 
 .laundry-cta {
-  background: var(--vb-black);
+  background: var(--vb-red);
   color: var(--vb-white);
-  border-color: var(--vb-black);
+  border-color: var(--vb-red);
 }
 
 .laundry-cta:hover {
-  background: var(--vb-red);
-  border-color: var(--vb-red);
+  background: var(--vb-red-dk);
+  border-color: var(--vb-red-dk);
 }
 
 .laundry-hero-visual {
@@ -1142,20 +1142,20 @@ html {
   resize: vertical;
 }
 
-/* Dark inputs for Bar */
+/* Light inputs for Bar (always legible, no dark-until-filled) */
 .theme-bar .form-group input,
 .theme-bar .form-group select,
 .theme-bar .form-group textarea {
-  background: #111;
-  border-color: #3A3A3A;
-  color: var(--vb-white);
+  background: var(--vb-white);
+  border-color: var(--vb-border-medium);
+  color: var(--vb-text);
 }
 
 .theme-bar .form-group input:focus,
 .theme-bar .form-group select:focus,
 .theme-bar .form-group textarea:focus {
-  border-color: var(--vb-white);
-  box-shadow: 0 0 0 2px var(--vb-black), 0 0 0 4px var(--vb-white);
+  border-color: var(--vb-black);
+  box-shadow: 0 0 0 2px var(--vb-white), 0 0 0 4px var(--vb-black);
 }
 
 .theme-bar .form-group label {
@@ -1351,14 +1351,14 @@ html {
 }
 
 .pole-btn-immo {
-  background: var(--vb-black);
+  background: var(--vb-red);
   color: var(--vb-white);
-  border: 2px solid var(--vb-black);
+  border: 2px solid var(--vb-red);
 }
 
 .pole-btn-immo:hover {
-  background: var(--vb-red);
-  border-color: var(--vb-red);
+  background: var(--vb-red-dk);
+  border-color: var(--vb-red-dk);
 }
 
 .pole-btn-transit {
@@ -1426,14 +1426,14 @@ html {
 }
 
 .immo-cta {
-  background: var(--vb-black);
+  background: var(--vb-red);
   color: var(--vb-white);
-  border-color: var(--vb-black);
+  border-color: var(--vb-red);
 }
 
 .immo-cta:hover {
-  background: var(--vb-red);
-  border-color: var(--vb-red);
+  background: var(--vb-red-dk);
+  border-color: var(--vb-red-dk);
 }
 
 .immo-hero-visual {
@@ -1493,16 +1493,16 @@ html {
 }
 
 .immo-cta-btn {
-  background: var(--vb-white);
-  color: var(--vb-black);
-  border-color: var(--vb-white);
+  background: var(--vb-red);
+  color: var(--vb-white);
+  border-color: var(--vb-red);
   white-space: nowrap;
 }
 
 .immo-cta-btn:hover {
-  background: var(--vb-red);
+  background: var(--vb-red-dk);
   color: var(--vb-white);
-  border-color: var(--vb-red);
+  border-color: var(--vb-red-dk);
 }
 
 .immo-cta-band h2 {

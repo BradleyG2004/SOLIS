@@ -1,9 +1,15 @@
 import Link from 'next/link'
 import { CocktailBuilder } from '@/components/CocktailBuilder'
-import { getIngredients } from '@/lib/data'
+import { getIngredients, getSiteSettings } from '@/lib/data'
+import type { SiteSettings } from '@/lib/types'
 
 export default async function CreateCocktailPage() {
-  const ingredients = await getIngredients()
+  const [ingredients, settings] = await Promise.all([
+    getIngredients(),
+    getSiteSettings().catch(
+      (): SiteSettings => ({ paymentNotice: undefined, whatsappNumber: undefined }),
+    ),
+  ])
 
   return (
     <div className="theme-bar">
@@ -17,7 +23,7 @@ export default async function CreateCocktailPage() {
         </div>
       </section>
       <section className="section container" style={{ maxWidth: '640px' }}>
-        <CocktailBuilder ingredients={ingredients} />
+        <CocktailBuilder ingredients={ingredients} whatsappNumber={settings.whatsappNumber} />
       </section>
     </div>
   )

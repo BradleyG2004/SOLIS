@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getCocktailBySlug } from '@/lib/data'
+import { getCocktailBySlug, getSiteSettings } from '@/lib/data'
 import { formatPrice } from '@/lib/format'
-import type { CocktailComposition, Equipment } from '@/lib/types'
+import { buildWhatsAppLink } from '@/lib/whatsapp'
+import type { CocktailComposition, Equipment, SiteSettings } from '@/lib/types'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -47,7 +48,12 @@ function getEquipmentName(eq: Equipment | number) {
 
 export default async function CocktailDetailPage({ params }: Props) {
   const { slug } = await params
-  const cocktail = await getCocktailBySlug(slug)
+  const [cocktail, settings] = await Promise.all([
+    getCocktailBySlug(slug),
+    getSiteSettings().catch(
+      (): SiteSettings => ({ paymentNotice: undefined, whatsappNumber: undefined }),
+    ),
+  ])
   if (!cocktail) notFound()
 
   const imgSrc =
@@ -122,6 +128,19 @@ export default async function CocktailDetailPage({ params }: Props) {
         )}
 
         <div className="detail-actions">
+          {settings.whatsappNumber && (
+            <a
+              href={buildWhatsAppLink(
+                settings.whatsappNumber,
+                `Bonjour, je suis intéressé(e) par ce cocktail :\n\n*${cocktail.name}*${cocktail.price != null ? `\nPrix : ${formatPrice(cocktail.price)}` : ''}\n\nEst-il disponible ?`,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+            >
+              Commander
+            </a>
+          )}
           <Link href="/bar/creer" className="btn bar-cta-primary">
             Créer mon cocktail →
           </Link>

@@ -3,6 +3,7 @@
 import { useSearchParams } from 'next/navigation'
 import { useState, Suspense } from 'react'
 import { createQuoteRequest } from '@/lib/client-api'
+import { buildWhatsAppLink } from '@/lib/whatsapp'
 import type { LaundryOffer } from '@/lib/types'
 
 const defaultItems = [
@@ -10,7 +11,13 @@ const defaultItems = [
   { itemType: 'Pantalon', quantity: 1 },
 ]
 
-function QuoteFormInner({ offers }: { offers: LaundryOffer[] }) {
+function QuoteFormInner({
+  offers,
+  whatsappNumber,
+}: {
+  offers: LaundryOffer[]
+  whatsappNumber?: string | null
+}) {
   const searchParams = useSearchParams()
   const preselectedSlug = searchParams.get('offre')
 
@@ -52,6 +59,12 @@ function QuoteFormInner({ offers }: { offers: LaundryOffer[] }) {
         notes: notes || undefined,
       })
       setStatus('success')
+
+      if (whatsappNumber) {
+        const itemsText = validItems.map((i) => `- ${i.itemType} x${i.quantity}`).join('\n')
+        const message = `Bonjour, je viens d'envoyer une demande de devis pressing :\n\n${selectedOffer ? `Offre : ${selectedOffer.name}\n` : ''}${itemsText}\n\nNom : ${customerName}\nTéléphone : ${phone || 'non renseigné'}`
+        window.open(buildWhatsAppLink(whatsappNumber, message), '_blank', 'noopener,noreferrer')
+      }
     } catch (err) {
       setStatus('error')
       setErrorMsg(err instanceof Error ? err.message : 'Erreur lors de l\'envoi.')
@@ -134,10 +147,16 @@ function QuoteFormInner({ offers }: { offers: LaundryOffer[] }) {
   )
 }
 
-export function QuoteForm({ offers }: { offers: LaundryOffer[] }) {
+export function QuoteForm({
+  offers,
+  whatsappNumber,
+}: {
+  offers: LaundryOffer[]
+  whatsappNumber?: string | null
+}) {
   return (
     <Suspense fallback={<p>Chargement…</p>}>
-      <QuoteFormInner offers={offers} />
+      <QuoteFormInner offers={offers} whatsappNumber={whatsappNumber} />
     </Suspense>
   )
 }

@@ -1,9 +1,15 @@
 import Link from 'next/link'
 import { QuoteForm } from '@/components/QuoteForm'
-import { getLaundryOffers } from '@/lib/data'
+import { getLaundryOffers, getSiteSettings } from '@/lib/data'
+import type { SiteSettings } from '@/lib/types'
 
 export default async function DevisPage() {
-  const offers = await getLaundryOffers()
+  const [offers, settings] = await Promise.all([
+    getLaundryOffers(),
+    getSiteSettings().catch(
+      (): SiteSettings => ({ paymentNotice: undefined, whatsappNumber: undefined }),
+    ),
+  ])
 
   return (
     <div className="theme-laundry">
@@ -17,7 +23,7 @@ export default async function DevisPage() {
         </div>
       </section>
       <section className="section container" style={{ maxWidth: '640px' }}>
-        <QuoteForm offers={offers} />
+        <QuoteForm offers={offers} whatsappNumber={settings.whatsappNumber} />
       </section>
     </div>
   )
