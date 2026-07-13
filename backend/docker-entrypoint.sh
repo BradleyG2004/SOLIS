@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
-NODE_OPTIONS=--no-deprecation node_modules/.bin/payload migrate
+chown -R nextjs:nodejs ./media
 
-exec "$@"
+su-exec nextjs:nodejs sh -c "NODE_OPTIONS=--no-deprecation node_modules/.bin/payload migrate"
+
+exec su-exec nextjs:nodejs "$@"
