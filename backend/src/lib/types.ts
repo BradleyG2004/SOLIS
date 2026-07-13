@@ -82,4 +82,5 @@ export type SiteSettings = {
   barIntro?: string | null
   laundryIntro?: string | null
   paymentNotice?: string | null
+  whatsappNumber?: string | null
 }

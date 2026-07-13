@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { PaymentBadge } from '@/components/PaymentBadge'
 import { getProductBySlug, getSiteSettings } from '@/lib/data'
 import { formatPrice } from '@/lib/format'
+import { buildWhatsAppLink } from '@/lib/whatsapp'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -98,9 +99,23 @@ export default async function ProductPage({ params }: Props) {
         )}
 
         <div className="detail-actions">
-          <button type="button" className="btn btn-disabled" disabled>
-            Commander
-          </button>
+          {settings.whatsappNumber ? (
+            <a
+              href={buildWhatsAppLink(
+                settings.whatsappNumber,
+                `Bonjour, je suis intéressé(e) par ce produit :\n\n*${product.name}*\nPrix : ${formatPrice(product.price)}${category ? `\nCatégorie : ${category.name}` : ''}\n\nEst-il disponible ?`,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+            >
+              Commander sur WhatsApp
+            </a>
+          ) : (
+            <button type="button" className="btn btn-disabled" disabled>
+              Commander
+            </button>
+          )}
           <PaymentBadge message={settings.paymentNotice ?? undefined} />
         </div>
       </div>

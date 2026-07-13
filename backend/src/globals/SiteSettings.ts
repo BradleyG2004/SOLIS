@@ -40,5 +40,14 @@ export const SiteSettings: GlobalConfig = {
       label: 'Message paiement en cours',
       defaultValue: 'Paiement en ligne — bientôt disponible',
     },
+    {
+      name: 'whatsappNumber',
+      type: 'text',
+      label: 'Numéro WhatsApp marchand',
+      admin: {
+        description: 'Format international sans le +, sans espaces (ex: 237656234966).',
+      },
+      defaultValue: '237656234966',
+    },
   ],
 }
