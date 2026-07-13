@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { formatSlug } from '../lib/slug'
 
 export const LaundryOffers: CollectionConfig = {
   slug: 'laundry-offers',
@@ -30,6 +31,9 @@ export const LaundryOffers: CollectionConfig = {
       label: 'Identifiant URL',
       required: true,
       unique: true,
+      hooks: {
+        beforeValidate: [formatSlug],
+      },
     },
     {
       name: 'description',

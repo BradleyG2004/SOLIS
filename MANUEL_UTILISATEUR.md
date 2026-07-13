@@ -72,13 +72,17 @@ Page d'annonce uniquement — le service n'est pas encore actif. Rien à gérer 
 
 Chaque catégorie a :
 - **Nom** — affiché sur le site (ex. "Accessoires")
-- **Identifiant URL** — technique, utilisé dans l'adresse de la page (ex. `accessoires`). Ne pas mettre d'espaces ni d'accents.
+- **Identifiant URL** — technique, utilisé dans l'adresse de la page (ex. `accessoires`). Voir l'encart ci-dessous.
 - **Description** — courte phrase affichée sous le nom
 - **Ordre d'affichage** — un nombre ; les catégories s'affichent de la plus petite à la plus grande valeur
 - **Image** — voir [section 5](#5-gérer-les-images)
 - **Visible sur le site** — décochez pour masquer la catégorie sans la supprimer
 
 Pour créer une catégorie : cliquez sur **Create New**, remplissez les champs, cliquez sur **Save**.
+
+> **À propos de l'Identifiant URL (slug)** : ce champ détermine l'adresse web de la fiche (ex. la catégorie "Accessoires" devient `/market/accessoires`). Depuis le 10 juillet 2026, le site **nettoie automatiquement** ce que vous tapez : majuscules → minuscules, accents supprimés, espaces remplacés par des tirets. Par exemple "Porte-Clés" ou "Comestibles " (avec espace) deviennent automatiquement `porte-cles` et `comestibles` à l'enregistrement. Vous n'avez donc plus besoin d'y faire attention manuellement.
+>
+> **Si une page renvoie une erreur "page introuvable" alors que la fiche existe bien dans l'admin** : c'est presque toujours parce que cette fiche a été créée ou modifiée *avant* le 10 juillet 2026, avant que ce nettoyage automatique existe, et que son identifiant contient encore une majuscule, un accent ou un espace en trop. **La solution est simple** : ouvrez la fiche concernée dans l'admin et cliquez sur **Save** (même sans rien changer d'autre) — l'identifiant sera nettoyé automatiquement et l'adresse fonctionnera.
 
 ### 3.2 Produits (Market)
 
@@ -149,6 +153,8 @@ Toutes les images envoyées sont centralisées dans **Administration → Médias
 
 > **Conseil** : privilégiez des photos assez larges (au moins 800 px de large) et au format paysage pour un rendu net sur toutes les pages.
 
+> **Notice technique — stockage des images (10 juillet 2026)** : jusqu'au 10 juillet 2026, les images uploadées dans l'admin étaient stockées sur un espace disque temporaire qui pouvait être réinitialisé à chaque mise à jour technique du site — c'est ce qui a causé une perte des images déjà envoyées à cette date (les fiches se sont retrouvées avec une image "cassée"). Un espace de stockage permanent a depuis été ajouté : **toute image envoyée à partir de cette date est conservée durablement**, y compris lors des futures mises à jour du site. Si une fiche affiche encore une image manquante datant d'avant le 10 juillet, il suffit de la réenvoyer une fois via le champ **Image** de la fiche concernée.
+
 ---
 
 ## 6. Paramètres généraux du site
@@ -178,5 +184,5 @@ Chaque utilisateur créé ici peut se connecter à `/admin` avec les mêmes droi
 ## 8. Bon à savoir
 
 - **Rien n'est jamais définitivement perdu par accident** : décocher "Visible sur le site" masque un élément sans le supprimer. Préférez toujours cette option à la suppression si vous n'êtes pas sûr.
-- **L'identifiant URL (slug)** d'une catégorie, d'un produit, d'un cocktail ou d'une offre ne doit jamais contenir d'espaces ni d'accents, et doit être unique. Si vous le changez après publication, l'ancienne adresse ne fonctionnera plus.
+- **L'identifiant URL (slug)** d'une catégorie, d'un produit, d'un cocktail ou d'une offre doit rester unique, et son nettoyage est désormais automatique (voir section 3.1). Si vous le changez après publication, l'ancienne adresse ne fonctionnera plus.
 - **Les statuts de commandes/devis sont uniquement internes** — les changer ne notifie pas automatiquement le client par email ; pensez à le recontacter directement (téléphone/email indiqués sur sa fiche).

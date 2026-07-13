@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { formatSlug } from '../lib/slug'
 
 const ingredientTypes = [
   { label: 'Alcool', value: 'alcool' },
@@ -38,6 +39,9 @@ export const Ingredients: CollectionConfig = {
       label: 'Identifiant URL',
       required: true,
       unique: true,
+      hooks: {
+        beforeValidate: [formatSlug],
+      },
     },
     {
       name: 'type',

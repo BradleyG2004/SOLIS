@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { formatSlug } from '../lib/slug'
 
 export const Categories: CollectionConfig = {
   slug: 'categories',
@@ -32,6 +33,9 @@ export const Categories: CollectionConfig = {
       unique: true,
       admin: {
         description: 'Ex. accessoires, nourriture',
+      },
+      hooks: {
+        beforeValidate: [formatSlug],
       },
     },
     {
